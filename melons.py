@@ -58,5 +58,18 @@ class InternationalMelonOrder(AbstractMelonOrder):
         return total
 
 
-# class GovernmentMelonOrder(AbstractMelonOrder):
-    # """Melon order for gov has no tax and needs to pass inspection """
+class GovernmentMelonOrder(AbstractMelonOrder):
+    """Melon order for gov has no tax and needs to pass inspection """
+
+    tax = 0
+    passed_inspection = False
+
+    # def __init__(self, species, qty):
+    #     """Initialize melon order attributes."""
+    #     super(GovernmentMelonOrder, self).__init__(species, qty)
+    #     self.passed_inspection = False
+
+    def mark_inspection(self, passed):
+        """sets passed_inspection to True after a melon passes inspection"""
+        if passed:
+            self.passed_inspection = True
